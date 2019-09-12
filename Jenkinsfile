@@ -31,16 +31,12 @@ node {
 } catch(e) {
 	echo "Caught some exception"
 	
-    mail bcc: '', body: '''Jenkins build Failure!!!
-	
-    Better get it fixed!
-    Anand''', cc: '', from: '', replyTo: '', subject: 'Jenkins Job', to: 'anandr72@gmail.com' 
+   
 }  finally {
 	echo "Finally Block"
 	
 	
-	
-    Build executed!
+
     
 
 }
