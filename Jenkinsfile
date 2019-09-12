@@ -1,16 +1,19 @@
+
+
 node {
 
   try {
   
   stage('Code Checkout') { 
       // Get some code from a GitHub repository
-      git 'https://github.com/rchidana/calcwebapp.git'
+      git 'https://github.com/jitensingh12/calcwebapp.git'
 
    }
    
    stage('Unit Test') { 
       // Get some code from a GitHub repository
-      bat("mvn test")
+    sh 'mvn test'    
+     
 
    }
    
@@ -20,8 +23,8 @@ node {
    }
    
    stage('Package & Deploy') {
-   bat("mvn package")
-	 bat 'curl --upload-file target/calcwebapp.war "http://deployer:deployer@localhost:8081/manager/text/deploy?path=/webcalcdemo&update=true"'
+   sh 'mvn package'
+	 sh 'curl --upload-file target/calcwebapp.war "http://deployer:deployer@http://6243cfba.ngrok.io/manager/text/deploy?path=/webcalcdemo&update=true"'
    }
    
 
